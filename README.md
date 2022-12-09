@@ -8,9 +8,9 @@ npx hardhat node
 T2
 npx hardhat node --port 8546
 T3
-npx hardhat deploy-eth --network localhost
+npx hardhat deploy-eth --network ethereum
 T4
-npx hardhat deploy-pol --network localhost2
+npx hardhat deploy-pol --network polygon
 T5
 nodemon scripts/eth-pol-bridge.js
 T6

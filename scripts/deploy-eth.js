@@ -15,7 +15,7 @@ async function deployContracts(args) {
 
   console.log("Deploying Ethereum Token with the account:", admin.address);
 
-  const contractFactory = await ethers.getContractFactory("LimeTokenEth");
+  const contractFactory = await ethers.getContractFactory("LimeToken");
   const token = await contractFactory.deploy("LimeToken", "LMT");
   console.log("Waiting for token deployment...");
   await token.deployed();
@@ -24,13 +24,13 @@ async function deployContracts(args) {
 
   console.log("Minting..");
   try {
-    await token.mint(admin.address, ethers.utils.parseEther("0.001"));
+    await token.mint(admin.address, 500);
   } catch (error) {
     console.log(error);
   }
 
   // Bridge
-  const bridgeFactory = await ethers.getContractFactory("BridgeBase");
+  const bridgeFactory = await ethers.getContractFactory("Bridge");
   const bridge = await bridgeFactory.deploy(token.address);
   console.log("Waiting for bridge deployment...");
   await bridge.deployed();

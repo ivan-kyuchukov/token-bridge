@@ -6,8 +6,12 @@ import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 import "./IToken.sol";
 
-contract LimeTokenEth is IToken, Ownable, ERC20 {
+contract LimeToken is IToken, Ownable, ERC20 {
   constructor(string memory name, string memory symbol) ERC20(name, symbol) {
+  }
+
+  function decimals() public pure override returns (uint8) {
+      return 2;
   }
 
   function mint(address to, uint amount) external override onlyOwner {

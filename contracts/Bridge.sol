@@ -5,7 +5,7 @@ pragma abicoder v2;
 import '@openzeppelin/contracts/access/Ownable.sol';
 import "./IToken.sol";
 
-contract BridgeBase is Ownable {
+contract Bridge is Ownable {
 
   constructor(address _token) {
     token = IToken(_token);
